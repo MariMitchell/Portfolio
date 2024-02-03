@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mobile Narrative</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link rel="stylesheet" href="../Styles/styles.css">
+
+  <!-- Load d3.js -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+
+</head>
+
+<body>
+  <div class="banner">
+    <h1>Dog Surrenders in Ada County</h1>
+  </div>
+  <div class="pageBackground">
+    <div class="row">
+      <div class="col-4">
+        <img src="../Images/IHSLogo.png" alt="Idaho Humane Society Logo" />
+      </div>
+      <div class="col-8">
+        <!--Introduction text-->
+        <h2>Why Dog Surrenders?</h2>
+        <p>When I first applied to work at the Idaho Humane Society, I was ecstatic. I always enjoyed being around
+          animals and thought I would feel right at home. I imagined being able to interact with the animals who came
+          into our shelter, showering them with affection and wishing them off when their owners came. Reality was much
+          different. Some days were like the ones I imagined. Those were the days where one of our fosters finally got
+          approved for adoption and were sent to the perfect home, or when a family was reunited with a pet that had
+          been missing for three months. Most days, however, were brutal.
+        </p>
+        <p>
+          Before continuing, I would like to explain how Animal Control runs. The Idaho Humane Society is contracted by
+          various cities to perform the service of Animal Control. These cities set mandatory redemption fees that must
+          be paid if an animal enters our shelter.
+        </p>
+      </div>
+      <div class="col-12">
+        <p>These fees are as follows:</p>
+        <ul>
+          <li>Boarding Fees: $6/day. This fee helps cover the cost of food, toys, blankets, or anything else provided
+            to pets while in the care of the Idaho Humane Society.</li>
+          <li>Licensing Fees: Price varies by city. All cities within Ada County require dogs to be licensed through
+            the city. The price of a license can also vary on whether or not the animal is altered or unaltered. </li>
+          <li>Altered Fees: Price varies by city. Typically, the fee is cheaper if the pet has been altered as a way
+            to increase people getting their pets spayed/neutered and decreasing the chances of unwanted litters.
+          </li>
+          <li>Vaccine: $14.00 for Parvo/Bordetella boosters. These are given to every pet that enters the shelter in
+            an effort to prevent them from coming into contact with any diseases while in the care of the Idaho Humane
+            Society.</li>
+          <li>Rabies Vaccine: $14.00. All cities in Ada County BY LAW require this vaccine is given by the Idaho
+            Humane Society before the animal is allowed to leave the shelter. If the owner has proof of an updated
+            rabies vaccine that is accepted. </li>
+        </ul>
+        <p>
+          In my time at the Idaho Humane Society, I had been screamed at, cussed out, and had death threats thrown at
+          me. I have had people twice my age and size threaten to come back and kill me because I couldn’t release their
+          dog to them without a valid form of identification. I have also had heartbreaking phone calls with various
+          cities, begging them to wave some of the fees so those who can’t afford them could be reunited with their pet.
+          While redemptions were hard, helping people through the surrender process was even more heartbreaking.
+        </p>
+        <p>
+          Owner arrest, unable to afford vet bills, and death of a relative. These are some of the reasons a dog might
+          end up in a shelter, and some reasons an owner might find themselves making the difficult choice to rehome a
+          dog. In my time working at the Idaho Humane Society I have heard a plethora of reasons for an owner to
+          surrender their dog. These reasons ranged from moving to not expecting their Golden Retriever to reach 60
+          pounds because he was only 13 pounds when they got him.
+          <br>
+          <br>
+          Owner surrenders are hard on everyone. Especially the dog. This dog is being displaced from a home it might
+          have been in it’s entire life, being around people and dogs it doesn’t know, going through medical and
+          behavioral exams, and will hopefully be placed in its new forever home. Animal shelters all over the United
+          States accept hundreds of thousands of animals each year for a variety of reasons. The Idaho Humane Society
+          alone accepts around ten thousand pets each year. It is for this reason I wanted to research, and maybe find a
+          cause as to why so many pets are rehomed. For this project, I teamed up with the Idaho Humane Society in order
+          to analyze the reasons a dog might be surrendered to the shelter.
+
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <!-- First Graph Set up, number of surrenders by breed for jan-march-->
+      <div class="col-6">
+        <!--Buttons for bar graph-->
+        <button onclick="update(data1)">Dogs Surrendered-January</button>
+        <button onclick="update(data2)">Dogs Surrendered-February</button>
+        <button onclick="update(data3)">Dogs Surrendered-March</button>
+        <div id="totalData" class="overflow"></div>
+      </div>
+      <div class="col-6">
+        <p>The graph to the left lists out all of the dogs surrendered to the Idaho Humane Society from January through
+          March of 2021. Keep in mind these months are typically slower in terms of animal surrenders. A majority of
+          animals are surredered during the summer months
+          as it is what most animal professionals call "Kitten Season", as cats tend to produce offspring in the spring
+          and summer months. In addition to this, people will sometimes rehome their pets to go on vacations, and
+          sometimes the animals escape due to the incease traffic of guests in the home.</p>
+        <p>January and February of 2021 both had the American PitBull Terrier as the most surrendered dog breed, and it
+          would have been the most surrendered dog breed for March as well
+          if it was not for an extreme case of animal hording the Idaho Humane Society dealt with, accounting for all
+          fifty-five of the Papillons surrendered that month. The American Pit Bull Terrier accounted for a total of
+          fifty-two surrenders over these three months.
+          Following the American Pit Bull Terrier is the German Shepherd Dog, totaling thirty-four surrenders, then the
+          Siberian Husky, coming to twenty-six total surrenders.
+        </p>
+        <p>With these numbers in mind, I wanted to delve furthur into these specific breeds being surrendered, and
+          perhaps determine some potential causes. My hope is by exposing some of the biggest reasons dogs are
+          surrendered, I can encourage dog lovers out there to do their research and
+          really reflect on themselves before adopting an animal.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <p>There are many reasons for an owner to feel the need to rehome their pet. The graph to the right highlights
+          the top five reasons owners gave the Idaho Human Society upon surrendering their animals.
+          The reasons are as follows:
+        </p>
+        <ol>
+          <li>Not Enough Time</li>
+          <li>Too Many Animals</li>
+          <li>Moving</li>
+          <li>Unrealistic Expectations</li>
+          <li>Aggressive/Reactive Behaviors</li>
+        </ol>
+        <p>Most of the dog breeds surrendered with the reason being Not Enough Time tend to be working breeds, such as
+          the German Shepherd Dog, Siberian Husky, and Cattle Dogs.
+          Not every dog breed is fit for the home, and working breeds such as these are not for novice owners. These
+          dogs have been gaining popularity recently and shelters have experienced
+          and influx of these breeds, typically between the ages of seven months and three years.
+          This is typically due
+          to the fact that a majority of dog owners do not train their pets. In fact, The American Pet Product
+          Association conducted a recent survey and found only 4.7% of dog owners enroll their
+          pets in dog training classes. Not training your dog
+          more often than not leads to an under socialized and often fearful animal.
+        </p>
+        <p>As mentioned above, fifty-five out of the fifty-six dogs surrendered for too many animals was due the hording
+          case that occured in March.</p>
+        <p>A majority of the dogs surrendered due to their owners moving were due so because of breed restrictions. Many
+          landlords have policies against owning certain types
+          of dog breeds. These typically include misunderstood dog breeds that have been labeled as having a history of
+          attacking others, such as the American
+          PitBull Terrier, German Shepherd Dog, and Rottweilers, as well as
+          dogs considered to be wolf hybrids, such as the Siberian Husky.
+        </p>
+      </div>
+      <div class="col-8">
+        <div id="surrenderData" class="overflow"></div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <img src="../Images/graph.png">
+        </div>
+        <div class="col-6">
+          <p>This last graph compares the number of dogs surrendered based upon age groups. There are four main age
+            groups sor dogs, puppy, adolescent, adult, and senior.
+            In my research I found that the most dogs surrendered came from the adult age group, followed by puppies,
+            adolescents, and seniors. This is most likely due to the fact
+            the adult age group consists of five years, while contain two or less.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h2>Takeaway</h2>
+        <p>After going through the data collected and taking into account the information above, I feel it is imparative
+          for a potential dog owner to conduct proper research
+          and educate themselves on what it takes to own a dog before getting one.
+        </p>
+        <h3>Research To Be Done</h3>
+        <div class="row">
+          <div class="col-4">
+            <p>Breed Specifications: </p>
+            <ul>
+              <li>What the breed was originally bred to do</li>
+              <li>Sizing</li>
+              <li>Temperment</li>
+              <li>Drooling Levels</li>
+              <li>Coat Type</li>
+              <li>Coat Length</li>
+              <li>Openess To Strangers</li>
+              <li>Playfulness Levels</li>
+              <li>Protective Nature</li>
+              <li>Adaptability</li>
+              <li>Trainability</li>
+              <li>Energy Level</li>
+              <li>Barking Tendencies</li>
+              <li>Mental Stimulation Needs</li>
+            </ul>
+          </div>
+          <div class="col-4">
+            <p>Cost of Owning a Dog: </p>
+            <ul>
+              <li>Training</li>
+              <li>Vet Bills</li>
+              <li>Pet Insurance</li>
+              <li>Food</li>
+              <li>Treats</li>
+              <li>Toys</li>
+              <li>Collars</li>
+              <li>Medications</li>
+              <li>Pet Licensing</li>
+            </ul>
+          </div>
+          <div class="col-4">
+            <p>Acceptance Level In The Community: </p>
+            <p>Some communities have rules against owning certain dog breeds, most notably Huskies, German Shepherd
+              Dogs,
+              and American Pit Bull Terriers/Bully Breeds.</p>
+          </div>
+        </div>
+        <h3>Breeders and How to Spot Red Flags</h3>
+        <iframe class="video" src="https://www.youtube.com/embed/xfndet6Hivo" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <h3>Links and Sources</h3>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <a href=https://www.americanpetproducts.org/pubs_survey.asp>American Pet Products Association National Pet
+          Owners
+          Survey</a>
+        <br>
+        <a
+          href=https://www.akc.org/?utm_source=google&utm_medium=cpc&utm_campaign=20200413_akc-rev_responsivesearchad1&utm_content=CoreBrand_AKC&utm_term=akc&gclid=EAIaIQobChMIobLttcG_9AIVxCtMCh203wKhEAAYASAAEgIFYvD_BwE>Do
+          More Research On Specific Dog Breeds With The Help of The American Kennel Club</a>
+        <br>
+        <a
+          href="https://www.akc.org/breeder-programs/breed-health-testing-requirements/herding-group-health-testing-requirements/">American
+          Kennel Club Health Testing Requirements</a>
+        <br>
+        <a href="https://www.ofa.org/">The Canine Health Information Center (OFA)</a>
+        <br>
+        <a href="https://idahohumanesociety.org/">Idaho Humane Society</a>
+      </div>
+      <div class="col-1"></div>
+    </div>
+
+
+    <!-- First bar graph, shows number of dogs surrendered by months jan-march-->
+    <script>
+
+      // Data set for jan
+      var data1 = [
+        { group: "Australian Cattle Dog", value: 4 },
+        { group: "Australian Shepherd", value: 6 },
+        { group: "Border Collie", value: 8 },
+        { group: "Boxer", value: 4 },
+        { group: "Bulldog", value: 2 },
+        { group: "Chiuahua", value: 6 },
+        { group: "Coonhound", value: 1 },
+        { group: "Dobermann", value: 1 },
+        { group: "French Bulldog", value: 1 },
+        { group: "German Shepherd Dog", value: 11 },
+        { group: "Golden Retriever", value: 4 },
+        { group: "Labrador Retriever", value: 9 },
+        { group: "Papillon", value: 2 },
+        { group: "Pomeranian", value: 3 },
+        { group: "Pug", value: 2 },
+        { group: "Rottweiler", value: 1 },
+        { group: "Siberian Huskey", value: 9 },
+        { group: "Terrier, American PitBull", value: 21 },
+      ];
+
+      //Data for feb
+      var data2 = [
+        { group: "Australian Cattle Dog", value: 2 },
+        { group: "Australian Shepherd", value: 1 },
+        { group: "Border Collie", value: 1 },
+        { group: "Cane Corso", value: 1 },
+        { group: "Chiuahua", value: 8 },
+        { group: "German Shepherd Dog", value: 12 },
+        { group: "Labrador Retriever", value: 11 },
+        { group: "Pomeranian", value: 1 },
+        { group: "Siberian Huskey", value: 12 },
+        { group: "Terrier, American PitBull", value: 14 },
+      ];
+
+      //Data for march
+      var data3 = [
+        { group: "Australian Cattle Dog", value: 9 },
+        { group: "Belgin Malinois", value: 1 },
+        { group: "Border Collie", value: 2 },
+        { group: "Boxer", value: 1 },
+        { group: "Cattle Dog", value: 2 },
+        { group: "Chiuahua", value: 5 },
+        { group: "French Bulldog", value: 1 },
+        { group: "German Shepherd Dog", value: 11 },
+        { group: "Papillon", value: 55 },
+        { group: "Siberian Huskey", value: 5 },
+        { group: "Terrier, American PitBull", value: 17 },
+      ];
+
+      // set the dimensions and margins of the graph
+      var margin = { top: 30, right: 30, bottom: 90, left: 80 },
+        width = 700 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+      // append the svg object to the body of the page
+      var svg = d3.select("#totalData")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+      //Title
+      svg.append("text")
+        .attr("x", 175)
+        .attr("y", -10)
+        .attr("font-size", 20)
+        .attr("color", "#1b1c17")
+        .text("Number of Dog Surrenders by Breed");
+
+      //X axis title
+      svg.append("text")
+        .attr("x", 200)
+        .attr("y", 460)
+        .attr("font-size", 20)
+        .attr("color", "#1b1c17")
+        .text("Dog Breed");
+
+      //Y axis titles
+      svg.append("text")
+        .attr("x", -300)
+        .attr("y", -30)
+        .attr("transform", "translate(0)rotate(-90)")
+        .attr("font-size", 20)
+        .attr("color", "#1b1c17")
+        .text("Number of Surrenders");
+
+      // Initialize the X axis
+      var x = d3.scaleBand()
+        .range([0, width])
+        .padding(0.2);
+      var xAxis = svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+
+      // Initialize the Y axis
+      var y = d3.scaleLinear()
+        .range([height, 0]);
+      var yAxis = svg.append("g")
+        .attr("class", "myYaxis")
+
+
+      // A function that create / update the plot for a given variable:
+      function update(data) {
+
+        // Update the X axis
+        x.domain(data.map(function (d) { return d.group; }))
+        xAxis.call(d3.axisBottom(x)).selectAll("text")
+          .attr("transform", "translate(-10,0)rotate(-25)")
+          .style("text-anchor", "end");
+
+        // Update the Y axis
+        y.domain([0, d3.max(data, function (d) { return d.value })]);
+        yAxis.transition().duration(1000).call(d3.axisLeft(y));
+
+        // Create the u variable
+        var u = svg.selectAll("rect")
+          .data(data)
+
+        u
+          .enter()
+          .append("rect") // Add a new rect for each new elements
+          .merge(u) // get the already existing elements as well
+          .transition() // and apply changes to all of them
+          .duration(1000)
+          .attr("x", function (d) { return x(d.group); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("width", x.bandwidth())
+          .attr("height", function (d) { return height - y(d.value); })
+          .attr("fill", "#33511c")
+
+        // If less group in the new dataset, I delete the ones not in use anymore
+        u
+          .exit()
+          .remove()
+      }
+
+      // Initialize the plot with the first dataset
+      update(data1)
+
+    </script>
+    <br>
+    <br>
+
+    <!--Second graph, Tree map shows number of dogs surrendered and for what-->
+
+    <script>
+
+      // set the dimensions and margins of the graph
+      var margin = { top: 10, right: 10, bottom: 20, left: 10 },
+        width = 1000 - margin.left - margin.right,
+        height = 800 - margin.top - margin.bottom;
+
+      // append the svg object to the body of the page
+      var svg2 = d3.select("#surrenderData")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+      // read json data
+      //d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_dendrogram_full.json", function(data) {
+
+      let data = {
+        "children": [
+          {
+            "name": "Unrealistic Expectations", //Data for dogs surrendered for unrealistic expectations
+            "children": [
+              {
+                "name": "Australian Cattle Dog",
+                "value": 4,
+              },
+              {
+                "name": "Australian Shepherd",
+                "value": 4,
+              },
+              {
+                "name": "Siberian husky",
+                "value": 8,
+              },
+              {
+                "name": "Pit Bull",
+                "value": 3,
+              },
+              {
+                "name": "German Shepherd Dog",
+                "value": 13,
+              },
+              {
+                "name": "Collie",
+                "value": 2,
+              },
+              {
+                "name": "Labrador",
+                "value": 4,
+              },
+              {
+                "name": "Cattle Dog",
+                "value": 2,
+              }
+            ],
+          },
+          {
+            "name": "Aggressive/Reactive Behaviors",
+            "children": [
+              {
+                "name": "Rottweiler",
+                "value": 1,
+              },
+              {
+                "name": "Pit Bull",
+                "value": 1,
+              },
+              {
+                "name": "Chihuahua",
+                "value": 4,
+              },
+              {
+                "name": "Dobermann",
+                "value": 1,
+              },
+              {
+                "name": "German Shepherd",
+                "value": 1,
+              },
+              {
+                "name": "Aussie Cattle Dog",
+                "value": 1,
+              },
+              {
+                "name": "Belgian Mal",
+                "value": 1,
+              }
+            ],
+          },
+          {
+            "name": "Moving",
+            "children": [
+              {
+                "name": "Aussie Cattle Dog",
+                "value": 1,
+              },
+              {
+                "name": "Boxer",
+                "value": 1,
+              },
+              {
+                "name": "German Shepherd",
+                "value": 9,
+              },
+              {
+                "name": "Terrier, American Pit Bull",
+                "value": 18,
+              },
+              {
+                "name": "Chihuahua",
+                "value": 2,
+              },
+              {
+                "name": "Labrador",
+                "value": 4,
+              },
+              {
+                "name": "Siberian Husky",
+                "value": 7,
+              },
+              {
+                "name": "Collie",
+                "value": 1,
+              },
+              {
+                "name": "Hound",
+                "value": 1,
+              },
+              {
+                "name": "Pug",
+                "value": 2,
+              },
+            ],
+          },
+          {
+            "name": "Not Enough Time",
+            "children": [
+              {
+                "name": "Australian Cattle Dog",
+                "value": 7,
+              },
+              {
+                "name": "Border Collie",
+                "value": 5,
+              },
+              {
+                "name": "Chihuahua",
+                "value": 8,
+              },
+              {
+                "name": "German Shepherd Dog",
+                "value": 10,
+              },
+              {
+                "name": "Terrier American Pit Bull",
+                "value": 22,
+              },
+              {
+                "name": "Siberian Husky",
+                "value": 11,
+              },
+              {
+                "name": "Labrador",
+                "value": 11,
+              },
+              {
+                "name": "Australian Shepherd",
+                "value": 3,
+              },
+              {
+                "name": "Boxer",
+                "value": 3,
+              },
+              {
+                "name": "Golden Retriever",
+                "value": 2,
+              },
+              {
+                "name": "Pomeranian",
+                "value": 1,
+              },
+            ],
+          },
+          {
+            "name": "Too Many Animals",
+            "children": [
+              {
+                "name": "Papillon",
+                "value": 55,
+              },
+              {
+                "name": "Chihuahua",
+                "value": 1,
+              },
+            ],
+          },
+        ],
+        "name": "CEO"
+      }
+
+      // Give the data to this cluster layout:
+      var root = d3.hierarchy(data).sum(function (d) { return d.value }) // Here the size of each leave is given in the 'value' field in input data
+
+      // Then d3.treemap computes the position of each element of the hierarchy
+      d3.treemap()
+        .size([width, height])
+        .paddingTop(28)
+        .paddingRight(7)
+        .paddingInner(5)      // Padding between each rectangle
+        //.paddingOuter(6)
+        //.padding(20)
+        (root)
+
+      // prepare a color scale
+      var color = d3.scaleOrdinal()
+        .domain(["Unrealistic Expectations", "Aggressive/Reactive Behaviors", "Moving", "Not Enough Time", "Too Many Animals"])
+        .range(["#a03c08", "#166334", "#3f2b25", "#868a95", "#984634"])
+
+      // And a opacity scale
+      var opacity = d3.scaleLinear()
+        .domain([10, 30])
+        .range([.5, 1])
+
+      // use this information to add rectangles:
+      svg2
+        .selectAll("rect")
+        .data(root.leaves())
+        .enter()
+        .append("rect")
+        .attr('x', function (d) { return d.x0; })
+        .attr('y', function (d) { return d.y0; })
+        .attr('width', function (d) { return d.x1 - d.x0; })
+        .attr('height', function (d) { return d.y1 - d.y0; })
+        .style("stroke", "black")
+        .style("fill", function (d) { return color(d.parent.data.name) })
+        .style("opacity", function (d) { return opacity(d.data.value) })
+
+      // and to add the text labels
+      svg2
+        .selectAll("text")
+        .data(root.leaves())
+        .enter()
+        .append("text")
+        .attr("x", function (d) { return d.x0 + 5 })    // +10 to adjust position (more right)
+        .attr("y", function (d) { return d.y0 + 12 })    // +20 to adjust position (lower)
+        .text(function (d) { return d.data.name.replace('mister_', '') })
+        .attr("font-size", "10")
+        .attr("fill", "white")
+
+      // and to add the text labels
+      svg2
+        .selectAll("vals")
+        .data(root.leaves())
+        .enter()
+        .append("text")
+        .attr("x", function (d) { return d.x0 + 5 })    // +10 to adjust position (more right)
+        .attr("y", function (d) { return d.y0 + 27 })    // +20 to adjust position (lower)
+        .text(function (d) { return d.data.value })
+        .attr("font-size", "auto")
+        .attr("fill", "white")
+
+      // Add title for the 3 groups
+      svg2
+        .selectAll("titles")
+        .data(root.descendants().filter(function (d) { return d.depth == 1 }))
+        .enter()
+        .append("text")
+        .attr("x", function (d) { return d.x0 })
+        .attr("y", function (d) { return d.y0 + 21 })
+        .text(function (d) { return d.data.name })
+        .attr("font-size", "15px")
+        .attr("fill", function (d) { return color(d.data.name) })
+
+      // Add title for the 3 groups
+      svg2
+        .append("text")
+        .attr("x", 0)
+        .attr("y", 14)    // +20 to adjust position (lower)
+        .text("Five Most Common Reasons A Dog Was Surrendered")
+        .attr("font-size", "20px")
+        .attr("fill", "#1b1c17")
+
+    //})
+    </script>
+
+    <script>
+
+      // set the dimensions and margins of the graph
+      var margin = { top: 10, right: 20, bottom: 30, left: 50 },
+        width = 500 - margin.left - margin.right,
+        height = 420 - margin.top - margin.bottom;
+
+      // append the svg object to the body of the page
+      var svg3 = d3.select("#my_dataviz")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+      //Read the data
+      d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/4_ThreeNum.csv", function (data) {
+
+        // Add X axis
+        var x = d3.scaleLinear()
+          .domain([0, 10000])
+          .range([0, width]);
+        svg3.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
+
+        // Add Y axis
+        var y = d3.scaleLinear()
+          .domain([35, 90])
+          .range([height, 0]);
+        svg3.append("g")
+          .call(d3.axisLeft(y));
+
+        // Add a scale for bubble size
+        var z = d3.scaleLinear()
+          .domain([200000, 1310000000])
+          .range([1, 40]);
+
+        // Add dots
+        svg3.append('g')
+          .selectAll("dot")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("cx", function (d) { return x(d.gdpPercap); })
+          .attr("cy", function (d) { return y(d.lifeExp); })
+          .attr("r", function (d) { return z(d.pop); })
+          .style("fill", "#69b3a2")
+          .style("opacity", "0.7")
+          .attr("stroke", "black")
+
+      })
+    </script>
+</body>
+
+</html>

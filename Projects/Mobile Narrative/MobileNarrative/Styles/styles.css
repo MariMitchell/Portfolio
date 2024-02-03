@@ -1,0 +1,129 @@
+/** Grid system - https://www.w3schools.com/css/css_rwd_grid.asp **/
+* {
+	box-sizing: border-box;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+	width: 100%;
+}
+ 
+  @media only screen and (min-width: 768px) {
+	/* For desktop: */
+	.col-1 {width: 8.33%;}
+	.col-2 {width: 16.66%;}
+	.col-3 {width: 25%;}
+	.col-4 {width: 33.33%;}
+	.col-5 {width: 41.66%;}
+	.col-6 {width: 50%;}
+	.col-7 {width: 58.33%;}
+	.col-8 {width: 66.66%;}
+	.col-9 {width: 75%;}
+	.col-10 {width: 83.33%;}
+	.col-11 {width: 91.66%;}
+	.col-12 {width: 100%;}
+}
+
+[class*="col-"] {
+	float: left;
+	padding: 15px;
+	/*border: 1px solid red;*/
+}
+
+.row::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+/** Image - https://www.w3schools.com/css/css_rwd_grid.asp **/   
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/** Overflow (for tables) - https://www.w3schools.com/howto/howto_css_table_responsive.asp **/
+.overflow {
+	overflow-x:auto;
+}
+
+/* HTML Styling */
+html {
+	background-image: url(../Images/puppyBackground.jfif);
+}
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    font-style: bold;
+    font-style: italic;
+    color: white;
+	padding-bottom: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h2{
+    text-align: center;
+    font-style: bold;
+	font-size: 30px;
+    color: #1b1c17;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h3{
+    text-align: center;
+    font-style: bold;
+	font-size: 20px;
+    color: #1b1c17;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p{
+    text-align:left;
+    font-size: large;
+    color: #1b1c17;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+li{
+	color: #1b1c17;
+	font-size: large;
+}
+
+table{
+	border: 1px solid black;
+}
+
+button{
+	font-size: large;
+	background-color: #efdeca;
+	color: #1b1c17;
+	padding-right: 10px;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+  }
+
+.banner{
+    background-color: #2f1b15;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #333333;
+    padding: 1px 1px 0 1px;
+    margin-bottom: 1.5px;
+}
+
+.pageBackground{
+    background-color: #c0a29c;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #333333;
+    padding: 1px 1px 0 1px;
+    margin-bottom: 5px;
+}
+
+.video{
+	width: 100%;
+	height: 1000px;
+	padding: 10px;
+}

@@ -1,0 +1,368 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "gimm parking",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "parkingpriceIntent",
+                    "slots": [],
+                    "samples": [
+                        "pricing",
+                        "what is today pricing",
+                        "is there free parking today"
+                    ]
+                },
+                {
+                    "name": "parkinglocationintent",
+                    "slots": [
+                        {
+                            "name": "building",
+                            "type": "building_location",
+                            "samples": [
+                                "I need the {building}",
+                                "I need to park by the {building}",
+                                "{building}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Help me park",
+                        "I need to park"
+                    ]
+                },
+                {
+                    "interactionModel": {
+                        "languageModel": {
+                            "invocationName": "gimm parking",
+                            "intents": [
+                                {
+                                    "name": "AMAZON.CancelIntent",
+                                    "samples": []
+                                },
+                                {
+                                    "name": "AMAZON.HelpIntent",
+                                    "samples": []
+                                },
+                                {
+                                    "name": "AMAZON.StopIntent",
+                                    "samples": []
+                                },
+                                {
+                                    "name": "parkinglocationintent",
+                                    "slots": [
+                                        {
+                                            "name": "building",
+                                            "type": "building_location",
+                                            "samples": [
+                                                "I need the {building}",
+                                                "I need to park by the {building}",
+                                                "{building}"
+                                            ]
+                                        }
+                                    ],
+                                    "samples": [
+                                        "Help me park",
+                                        "I need to park"
+                                    ]
+                                },
+                                {
+                                    "name": "AMAZON.NavigateHomeIntent",
+                                    "samples": []
+                                },
+                                {
+                                    "name": "AMAZON.FallbackIntent",
+                                    "samples": []
+                                }
+                            ],
+                            "types": [
+                                {
+                                    "name": "parking_location",
+                                    "values": [
+                                        {
+                                            "name": {
+                                                "value": "university plaza broadway"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "resident south"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "resident central"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "resident west"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "central reserve"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "Lincoln garage"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "brady garage"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "south commuter"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "south reserve"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "east commuter"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "west commuter"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "east reserve"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "west reserve"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "building_location",
+                                    "values": [
+                                        {
+                                            "name": {
+                                                "value": "albertsons stadium"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "student union building"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "albertsons library"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "morrison center"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "college of business and economics"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "parking_space_type",
+                                    "values": [
+                                        {
+                                            "name": {
+                                                "value": "pay by hour"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "metered"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "pay by plate"
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "value": "handicap accessible "
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "dialog": {
+                            "intents": [
+                                {
+                                    "name": "parkinglocationintent",
+                                    "confirmationRequired": false,
+                                    "prompts": {},
+                                    "slots": [
+                                        {
+                                            "name": "building",
+                                            "type": "building_location",
+                                            "confirmationRequired": false,
+                                            "elicitationRequired": true,
+                                            "prompts": {
+                                                "elicitation": "Elicit.Slot.1448751313548.1446944696553"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "delegationStrategy": "ALWAYS"
+                        },
+                        "prompts": [
+                            {
+                                "id": "Elicit.Slot.1448751313548.1446944696553",
+                                "variations": [
+                                    {
+                                        "type": "PlainText",
+                                        "value": "What building do you need?"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "building_location",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "albertsons stadium"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "kinesiology annex"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "extramile arena"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bookstore"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "student union building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hemingway center"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "liberal arts building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "albertsons library"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "admin building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "riverfront hall"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mathematics building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "campus schoolhouse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "simplot micron advising and success hub"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "interactive learning center"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "multipurpose building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "education building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "science building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "morrison center"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "micron business and economics building"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "center for the visual arts"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        }
+    }
+}
